@@ -1,0 +1,129 @@
+@import "variables";
+
+
+.container-contacto {  
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header"
+      "section1 productos section2"
+      "footer footer footer";
+  }
+
+  .header-contacto { grid-area: header; 
+    background-color: $azul;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    img {
+        width: 75px;
+      }
+
+    nav ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+            margin: 5px;
+            padding: 10px;
+            border: 1px white solid;
+
+            a{
+                text-decoration: none;
+                color: white
+              }
+          }
+      }
+}
+
+.section1-contacto { 
+    grid-area: section1;
+    background-image: url(../img/fondo.jpeg); 
+  }
+
+  .main-contacto {
+    grid-area: productos;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+
+    h3 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+      }
+      p {
+        font-size: 20px;
+        padding: 0px;
+      }
+
+      .input {
+        padding-top: 20px;
+      }  
+      .botones {
+        color: #238bc7;
+        border: 5px rgb(41, 88, 173) double;
+        width: 100px;
+        padding: 10px;
+        text-align: center;
+      }
+  }
+
+  .section2-contacto { 
+    @extend .section1-contacto;
+    grid-area: section2;
+  }
+
+  .footer-contacto {
+    grid-area: footer;
+    background-color: $azul;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    img {
+        width: 50px;
+      }
+  }
+  
+  @media screen and (max-width:768px) {
+    .container-contacto {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+        "header"
+        "productos"
+        "section2"
+        "footer";
+        .header-contacto {
+            flex-direction: column;
+            align-items: center;
+          }
+        .section2 {
+            height: 150px;
+        }
+    }
+  }
+  
+  @media screen and (max-width:480px) {
+    .container-contacto {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "header"
+        "productos"
+        "section2"
+        "footer";
+    .header-contacto {
+            flex-direction: column;
+            align-items: center;
+          }
+    .section2 {
+            height: 150px;
+        }
+    }   
+    }
+  
